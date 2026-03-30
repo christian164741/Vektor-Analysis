@@ -367,3 +367,101 @@ führt damit tief in die Struktur der Analysis und Vektoranalysis hinein.
 	die später in den großen Sätzen der Vektoranalysis wiederkehrt:
 	Lokale Änderung und globale Gestalt sind untrennbar miteinander verbunden.
 \end{NoteBox}
+\subsection {Beispiel}
+
+\subsection{Ortsvektor und Verschiebung}
+
+
+Betrachten wir einen Punkt, der sich in der Ebene vom Punkt
+\[
+A=(1,1)
+\]
+zum Punkt
+\[
+B=(5,2)
+\]
+bewegt.
+
+Die zugehörigen Ortsvektoren sind
+\[
+\vec r_A=
+\begin{pmatrix}
+	1\\
+	1
+\end{pmatrix},
+\qquad
+\vec r_B=
+\begin{pmatrix}
+	5\\
+	2
+\end{pmatrix}.
+\]
+
+Die Bewegung vom Anfangspunkt zum Endpunkt wird durch den Verschiebungsvektor
+\[
+\Delta \vec r=\vec r_B-\vec r_A
+=
+\begin{pmatrix}
+	5\\
+	2
+\end{pmatrix}
+-
+\begin{pmatrix}
+	1\\
+	1
+\end{pmatrix}
+=
+\begin{pmatrix}
+	4\\
+	1
+\end{pmatrix}
+\]
+beschrieben.
+
+Man erkennt daran sofort:
+Der Punkt verschiebt sich um \(4\) Einheiten in x-Richtung und um \(1\) Einheit in y-Richtung.
+\newpage
+\noindent
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1.2]
+		
+		% Achsen
+		\draw[->] (0,0) -- (6,0) node[right] {$x$};
+		\draw[->] (0,0) -- (0,3.5) node[above] {$y$};
+		
+		% Punkte
+		\coordinate (A) at (1,1);
+		\coordinate (B) at (5,2);
+		
+		% Ortsvektoren
+		\draw[->, thick, blue] (0,0) -- (A) node[midway, left] {$\vec r_A$};
+		\draw[->, thick, blue] (0,0) -- (B) node[midway, above] {$\vec r_B$};
+		
+		% Verschiebungsvektor
+		\draw[->, thick, red] (A) -- (B) node[midway, above] {$\Delta \vec r$};
+		
+		% Punkte markieren
+		\filldraw[black] (A) circle (0.04) node[below left] {$A(1,1)$};
+		\filldraw[black] (B) circle (0.04) node[above right] {$B(5,2)$};
+		
+		% Hilfslinien
+		\draw[dashed] (A) -- (1,0);
+		\draw[dashed] (A) -- (0,1);
+		\draw[dashed] (B) -- (5,0);
+		\draw[dashed] (B) -- (0,2);
+		
+	\end{tikzpicture}
+	\caption{Zwei Ortsvektoren und der Verschiebungsvektor zwischen den Punkten \(A\) und \(B\).}
+\end{figure}
+
+Die Länge dieser Verschiebung beträgt
+\[
+\lVert \Delta \vec r\rVert
+=
+\sqrt{4^2+1^2}
+=
+\sqrt{17}.
+\]
+
+Damit ist die Bewegung zwischen Anfangs- und Endpunkt vollständig durch einen Vektor beschrieben.
