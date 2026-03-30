@@ -239,10 +239,10 @@ nämlich das Streckenstück von
 	
 
 	\begin{tikzpicture}[scale=1.2]
-		
+		\draw[xstep=1cm, ystep=1cm, very thin, color=lightgray] (-2,-2) grid (3,4);
 		% Achsen
 		\draw[->] (-0.8,0) -- (3.2,0) node[right] {$x$};
-		\draw[->] (0,-1.5) -- (0,3.8) node[above] {$y$};
+		\draw[->] (0,-1.5) -- (0,4.2) node[above] {$y$};
 		
 		% Gerade
 		\draw[thick] (0,-1) -- (2,3);
@@ -269,7 +269,7 @@ nämlich das Streckenstück von
 		\filldraw[black] (P5) circle (0.04) node[right] {$t=1$};
 		
 		% Titel
-		\node at (1.2,4.5) {$\vec r_1(t)=\begin{pmatrix}1\\1\end{pmatrix}+t\begin{pmatrix}1\\2\end{pmatrix}$};
+		\node at (1.2,4.9) {$\vec r_1(t)=\begin{pmatrix}1\\1\end{pmatrix}+t\begin{pmatrix}1\\2\end{pmatrix}, \qquad t\in[-1,1]$};
 		
 	\end{tikzpicture}
 		\end{center}
@@ -283,10 +283,10 @@ nämlich das Streckenstück von
 
 
 	\begin{tikzpicture}[scale=1.2]
-		
+		\draw[xstep=1cm, ystep=1cm, very thin, color=lightgray] (-2,-2) grid (3,4);
 		% Achsen
 		\draw[->] (-0.8,0) -- (3.2,0) node[right] {$x$};
-		\draw[->] (0,-1.5) -- (0,3.8) node[above] {$y$};
+		\draw[->] (0,-1.5) -- (0,4.2) node[above] {$y$};
 		
 		% Gerade
 		\draw[thick] (0,-1) -- (2,3);
@@ -314,7 +314,7 @@ nämlich das Streckenstück von
 		\filldraw[black] (Q5) circle (0.04) node[right] {$t=1$};
 		
 		% Titel
-		\node at (1.2,4.5) {$\vec r_2(t)=\begin{pmatrix}1\\1\end{pmatrix}+t^3\begin{pmatrix}1\\2\end{pmatrix}$};
+		\node at (1.2,4.9) {$\vec r_2(t)=\begin{pmatrix}1\\1\end{pmatrix}+t^3\begin{pmatrix}1\\2\end{pmatrix}\qquad t\in[-1,1]$};
 		
 	\end{tikzpicture}
 \end{center}
@@ -328,10 +328,11 @@ nämlich das Streckenstück von
 		
 	
 	\begin{tikzpicture}[scale=1.2]
-		
+			% Gitternetzlinien
+		\draw[xstep=1cm, ystep=1cm, very thin, color=lightgray] (-2,-2) grid (3,4);
 		% Achsen
 		\draw[->] (-0.8,0) -- (3.2,0) node[right] {$x$};
-		\draw[->] (0,-1.5) -- (0,3.8) node[above] {$y$};
+		\draw[->] (0,-1.5) -- (0,4.2) node[above] {$y$};
 		
 		% Gerade
 		\draw[thick] (0,-1) -- (2,3);
@@ -359,7 +360,7 @@ nämlich das Streckenstück von
 		\filldraw[black] (R5) circle (0.04) node[right] {$t=1$};
 		
 		% Titel
-		\node at (1.2,4.5) {$\vec r_3(t)=\begin{pmatrix}1\\1\end{pmatrix}+\sin\!\left(\frac{\pi}{2}t\right)\begin{pmatrix}1\\2\end{pmatrix}$};
+		\node at (1.2,4.9) {$\vec r_3(t)=\begin{pmatrix}1\\1\end{pmatrix}+\sin\!\left(\frac{\pi}{2}t\right)\begin{pmatrix}1\\2\end{pmatrix}\qquad t\in[-1,1]$};
 		
 	\end{tikzpicture}
 \end{center}
@@ -537,8 +538,17 @@ Betrachten wir die Vorschrift
 \[
 \vec q(t)=
 \begin{pmatrix}
+	1\\
+	1
+\end{pmatrix}
++
+\begin{pmatrix}
 	1+t\\
 	1+t^2
+\end{pmatrix}
+\begin{pmatrix}
+	1\\
+	2
 \end{pmatrix},
 \qquad t\in[-1,1].
 \]
@@ -597,3 +607,83 @@ verlässt man im Allgemeinen die ursprüngliche Gerade.
 	Schon kleine Änderungen in den Komponenten können dazu führen,
 	dass eine völlig andere Kurve entsteht.
 \end{DidacticBox}
+
+\subsection{Beispiel: Ein Halbkreis in zwei Parametrisierungen}
+
+Als Beispiel betrachten wir den oberen Halbkreis mit Radius \(R\) um den Ursprung.
+Er verläuft von \((R,0)\) nach \((-R,0)\).
+
+\begin{center}
+	\begin{tikzpicture}[xscale=1, yscale=1]
+		
+		% Gitternetzlinien
+		\draw[xstep=1cm, ystep=1cm, very thin, color=lightgray] (-4,4) grid (4,-2);
+		
+		% x-Achse
+		\draw[->] (-4,0) -- (4,0) node[below,xshift=-1em] {$x$}; 
+		
+		% y-Achse 
+		\draw[->] (0,-2) -- (0,4) node[left,yshift=-1em] {$y$};
+		
+		% Ursprung
+		\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+		
+		% Halbkreis
+		\draw[thick,blue,->] (3,0) arc (0:180:3);
+		
+		% Ortsvektor
+		\draw[->,color=blue] (0,0) -- (2,2.2) node[below,xshift=-2.7em,yshift=-0.5em] {$\vec r(u)$}; 
+		
+		% Winkel
+		\draw[->,draw=red] (1,0) arc (0:47:1);
+		\draw [red] (0.6,0.35) node {\footnotesize $u$};
+		
+		% Beschriftung
+		\draw[color=black] (3,-10pt) node {\footnotesize $R$};
+		\draw[color=black] (-3,-10pt) node {\footnotesize $-R$};
+	\end{tikzpicture}
+\end{center}
+
+\textbf{1. Parametrisierung mit dem Winkel}
+
+Die natürliche Parametrisierung des Halbkreises lautet
+\[
+\vec r(u)=
+\begin{pmatrix}
+	R\cos u\\
+	R\sin u
+\end{pmatrix},
+\qquad u\in[0,\pi].
+\]
+
+Für \(u=0\) erhält man den Punkt \((R,0)\), für \(u=\pi\)
+ den Punkt \((-R,0)\).
+Der Parameter \(u\) ist hier gerade der Polarwinkel.
+
+\medskip
+
+\textbf{2. Parametrisierung über die \(x\)-Koordinate}
+
+Aus der Kreisgleichung
+\[
+x^2+y^2=R^2
+\]
+folgt für den oberen Halbkreis
+\[
+y=\sqrt{R^2-x^2}.
+\]
+Damit kann derselbe Halbkreis auch durch
+\[
+\vec r(t)=
+\begin{pmatrix}
+	t\\
+	\sqrt{R^2-t^2}
+\end{pmatrix},
+\qquad t\in[-R,R]
+\]
+parametrisiert werden.
+
+\medskip
+
+Beide Darstellungen beschreiben dieselbe geometrische Kurve, aber mit unterschiedlichen Parametern.
+Daran erkennt man: Eine Parametrisierung legt nicht nur fest, \emph{welche} Kurve beschrieben wird, sondern auch, \emph{wie} sie durchlaufen wird.
